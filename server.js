@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 // Setup CORS
 app.use(cors());
 
-app.use(express.static(path.join(__dirname, 'public')));
+
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY // Replace with your OpenAI API key
@@ -65,9 +65,6 @@ app.post('/submit-feedback', (req, res) => {
   res.json({ message: 'Feedback submitted successfully' });
 });
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
